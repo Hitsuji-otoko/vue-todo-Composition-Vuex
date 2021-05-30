@@ -3,17 +3,19 @@
     <h1>{{ msg }}</h1>
     <ul class="todolist">
       <li v-for="(todo, index) in state.todoList" :key="todo.text">
-        {{ todo.text }}<CompleteButton :index="index" />
+        {{ todo.text }}
+        <router-link :to="{ name: 'detail', params: { id: todo.id } }"
+          >詳細</router-link
+        >
+        <CompleteButton :index="index" />
       </li>
     </ul>
-    <TodoInput />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
 import { useStore } from "vuex";
-import TodoInput from "../components/TodoInput.vue";
 import CompleteButton from "../components/CompleteButton.vue";
 
 interface State {
@@ -28,7 +30,6 @@ export default defineComponent({
   },
 
   components: {
-    TodoInput,
     CompleteButton,
   },
 

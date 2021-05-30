@@ -1,20 +1,15 @@
 <template>
   <div class="todolist">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <TodoList msg="Composition APIを使ったTodoアプリ" />
-    <hr />
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TodoList from "./components/TodoList.vue";
 
 export default defineComponent({
   name: "App",
-  components: {
-    TodoList,
-  },
 });
 </script>
 

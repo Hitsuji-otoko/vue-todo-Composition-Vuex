@@ -6,7 +6,22 @@ export interface State {
 
 export const store = createStore<State>({
   state: {
-    todoList: []
+    todoList: [{
+      id: 1,
+      text: "(・ワ・🌻)"
+    }]
+  },
+
+  getters: {
+    //個別のtodoオブジェクトを取得するゲッター
+    getTodoById(state) {
+      return function (_id: number) {
+        const todo = state.todoList.find(todo => todo.id === _id)
+        if (todo) {
+          return todo
+        }
+      }
+    }
   },
 
   mutations: {

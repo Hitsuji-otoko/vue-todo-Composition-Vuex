@@ -22,7 +22,7 @@ export default defineComponent({
         return 1;
       } else {
         const lastItem = store.state.todoList.slice(-1)[0];
-        return lastItem + 1;
+        return lastItem.id + 1;
       }
     };
 
