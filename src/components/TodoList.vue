@@ -13,6 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
+import { useStore } from "vuex";
 import TodoInput from "../components/TodoInput.vue";
 import CompleteButton from "../components/CompleteButton.vue";
 
@@ -33,23 +34,12 @@ export default defineComponent({
   },
 
   setup() {
+    const store = useStore();
     const state = reactive<State>({
-      todoList: [
-        { text: "(・ワ・🌻)" },
-        { text: "バリデーション:空白入力への対応" },
-      ],
+      todoList: store.state.todoList,
     });
 
-    //ミューテーション('add-todo')のコミットがなされたら以下を実行
-    const addTodoAction = (value: string) => {
-      state.todoList.push({ text: value });
-    };
-
-    const completeTodoAction = (targetIndex: number) => {
-      state.todoList.splice(targetIndex, 1);
-    };
-
-    return { state, addTodoAction, completeTodoAction };
+    return { state };
   },
 });
 </script>
