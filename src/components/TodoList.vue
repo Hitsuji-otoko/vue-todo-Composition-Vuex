@@ -3,11 +3,10 @@
     <h1>{{ msg }}</h1>
     <ul class="todolist">
       <li v-for="(todo, index) in state.todoList" :key="todo.text">
-        {{ todo.text
-        }}<CompleteButton :index="index" @complete-todo="completeTodoAction" />
+        {{ todo.text }}<CompleteButton :index="index" />
       </li>
     </ul>
-    <TodoInput @add-todo="addTodoAction" />
+    <TodoInput />
   </div>
 </template>
 
