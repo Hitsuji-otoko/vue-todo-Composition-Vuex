@@ -1,4 +1,7 @@
-# todo-compositionapi
+# todo-Composition-Vuex
+Vue3 Composition API + Vuex + TypeScriptで作ったTodo
+リスト
+練習用リポジトリ
 
 ## Project setup
 ```
